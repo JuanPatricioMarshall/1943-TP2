@@ -21,6 +21,12 @@ GameObject* GameObjectFactory::createGameObject(const std::string& gameObjectID)
 		return go;
 	}
 
+	if (gameObjectID.compare("default") == 0)
+	{
+		go = new Island();
+		return go;
+	}
+
 	delete go;
 
 }

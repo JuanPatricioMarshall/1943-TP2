@@ -17,6 +17,7 @@
 #include "../Utils/TextureHelper.h"
 #include "../Utils/GameObjectFactory.h"
 #include <vector>
+#include <sstream>
 
 class Level
 {

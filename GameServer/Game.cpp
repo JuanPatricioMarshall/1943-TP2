@@ -32,6 +32,9 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height)
     m_gameWidth = m_parserNivel->getVentana().ancho;
     m_gameHeight = m_parserNivel->getVentana().alto;
 
+    //printf("Path isla: %s \n", m_parserNivel->getListaSprites()[5].path.c_str());
+   // printf("ID isla: %s \n", m_parserNivel->getListaSprites()[5].id.c_str());
+
     printf("Se cargo el escenario con ancho %d y alto %d\n",m_gameWidth, m_gameHeight );
 
     inicializarServer();
@@ -86,9 +89,28 @@ bool Game::createPlayer(int playerID,  const std::string& playerName)
 	newPlayer->setShootingCooldown(shootingCooldown);
 	newPlayer->setShootingSpeed(bulletsSpeed);
 
+
 	m_playerNames[playerID] = playerName;
 
-	newPlayer->load(m_gameWidth/2, m_gameHeight/2, 38, 64, playerID, 14);
+	std::stringstream ss;
+	ss << "player" << (playerID + 1);
+	string playerStringID = ss.str();
+	int playerTextureID = m_textureHelper->stringToInt(playerStringID);
+
+	//Workaround
+	bool found = false;;
+	for(int i=0; i < m_parserNivel->getListaSprites().size(); i++)
+	{
+	  if (playerStringID == m_parserNivel->getListaSprites()[i].id)
+	  {
+		  found = true;
+		  break;
+	  }
+	}
+	if (!found)
+		playerTextureID = m_textureHelper->stringToInt("default");
+
+	newPlayer->load(m_gameWidth/2, m_gameHeight/2, 38, 64, playerTextureID, 14);
 	newPlayer->setConnected(true);
 
 	m_listOfPlayer[newPlayer->getObjectId()]= newPlayer;

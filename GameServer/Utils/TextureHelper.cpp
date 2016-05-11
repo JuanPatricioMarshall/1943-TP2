@@ -45,7 +45,7 @@ void TextureHelper::initialize()
 int TextureHelper::stringToInt(const std::string& stringID)
 {
 	if (m_textureIDMap.find(stringID) == m_textureIDMap.end())
-		return 9999;
+		return 999;
 
 	return m_textureIDMap[stringID];
 }

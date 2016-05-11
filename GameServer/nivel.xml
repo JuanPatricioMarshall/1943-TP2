@@ -71,7 +71,7 @@
 	<cantidadMaximaJugadores>1</cantidadMaximaJugadores>
 	<velocidadScroll>3</velocidadScroll>
 	<ancho>600</ancho>
-	<alto>2000</alto>
+	<alto>1500</alto>
 	<fondo>
 		<spriteId>agua</spriteId>
 		<ancho>10</ancho>

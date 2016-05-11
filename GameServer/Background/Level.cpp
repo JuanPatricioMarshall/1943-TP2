@@ -37,16 +37,22 @@ void Level::loadFromXML()
 
 	m_scrollSpeed = scene.velScroll;
 
+	 std::stringstream ss;
+
 	for (std::vector<Elemento>::iterator it = scene.listaDeElementos.begin() ; it !=  scene.listaDeElementos.end(); ++it)
 	{
 		//GameObjectFactory::createGameObject((*it).spriteId);
-		printf("Cargando %s en posicion %d, %d \n",(*it).spriteId.c_str(), (*it).posicion.x, (*it).posicion.y );
+		//printf("Cargando %s en posicion %d, %d \n",(*it).spriteId.c_str(), (*it).posicion.x, (*it).posicion.y );
 		GameObject* gameObject = GameObjectFactory::createGameObject((*it).spriteId);
 		gameObject->setLayer(MIDDLEGROUND);
-		gameObject->setHeight(150);
+		gameObject->setHeight(128);
 		gameObject->setTextureID(m_textureHelper->stringToInt((*it).spriteId));
 
 		addObject(gameObject, (*it).posicion.x, (*it).posicion.y);
+
+		 ss <<"Juego: Se cargó el objeto " << (*it).spriteId.c_str() << " en la posición x = " << (*it).posicion.x << ", y = " << (*it).posicion.y;
+		 Logger::Instance()->LOG(ss.str(), DEBUG);
+		 ss.clear();
 	}
 
 	/*GameObject* gameObject = GameObjectFactory::createGameObject("isla");

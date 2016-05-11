@@ -107,6 +107,8 @@ bool ParserNivel::extraerSprites(const pugi::xml_document* doc)
 			{
 				Logger::Instance()->LOG("Se cargo el path del sprite por default", WARN);
 				path = "Utils/Default/sprite.jpg";
+				id = "default";
+
 			}
 
 	   sprite.id = id;
