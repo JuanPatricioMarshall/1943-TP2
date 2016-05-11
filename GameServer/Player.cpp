@@ -14,6 +14,8 @@ Player::Player() :  MoveableObject(),
 					m_doingFlip(false),
 					m_flipAnimationTime(1000),
 					m_flipRemainingTime(0),
+					m_holdQuietTimer(100),
+					m_currentHoldQuietTime(0),
 					m_dead(false),
 					m_dying(false)
 {
@@ -81,9 +83,17 @@ void Player::update()
 		{
 			if (FRONZE_DISCONNECTED_PLAYER && !m_connected)
 				return;
+			//Esta quieto. Iniciar Timer para arrastrar
+            if (m_currentHoldQuietTime >= m_holdQuietTimer)
+            {
+            	m_position.m_y += Game::Instance()->getScrollSpeed();
+    			m_dirty = true;
+            }
+            else
+            {
+                m_currentHoldQuietTime += GameTimeHelper::Instance()->deltaTime();
+            }
 
-			m_position.m_y += Game::Instance()->getScrollSpeed();
-			m_dirty = true;
 		}
 	}
 
@@ -141,22 +151,26 @@ void Player::handleInput(InputMessage inputMsg)
         if ((inputMsg.buttonUp == 1) && (m_position.getY() > 0))
         {
             m_direction.setY(DIRECTION_UP);
+            m_currentHoldQuietTime = 0;
             m_dirty = true;
         }
         else if ((inputMsg.buttonDown == 1) && ((m_position.getY() + m_height) < Game::Instance()->getGameHeight() - 10))
         {
         	m_direction.setY(DIRECTION_DOWN);
+        	m_currentHoldQuietTime = 0;
             m_dirty = true;
         }
 
         if ((inputMsg.buttonLeft == 1)	&& m_position.getX() > 0)
         {
         	m_direction.setX(DIRECTION_LEFT);
+        	m_currentHoldQuietTime = 0;
             m_dirty = true;
         }
         else if ((inputMsg.buttonRight == 1) && ((m_position.getX() + m_width) < Game::Instance()->getGameWidth()))
         {
         	m_direction.setX(DIRECTION_RIGHT);
+        	m_currentHoldQuietTime = 0;
             m_dirty = true;
         }
         //Se mueve a velocidades constantes. Evita que vaay a mayot velocidad en diagonal

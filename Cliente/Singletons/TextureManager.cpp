@@ -73,17 +73,21 @@ void TextureManager::init(SDL_Renderer* pRenderer){
 	load(hola.path, 10, pRenderer);
 
 
-	hola.height = 150;
+	hola.height = 128;
 	hola.numFrames = 1;
-	hola.path =	"Assets/Sprites/island.jpg";
-	hola.width = 150;
+	hola.path =	"Assets/Sprites/island.png";
+	hola.width = 128;
 	m_textureMapInfo[20]=hola;
 	load(hola.path, 20, pRenderer);
-	load(hola.path, 20, pRenderer);
+
+	hola.height = 128;
+	hola.numFrames = 1;
+	hola.path =	"Assets/Sprites/Piedra.jpg";
+	hola.width = 128;
+	m_textureMapInfo[21]=hola;
+	load(hola.path, 21, pRenderer);
 
 	//BALAS
-
-
 	hola.width = 9;
 	hola.height = 54;
 	hola.numFrames = 1;

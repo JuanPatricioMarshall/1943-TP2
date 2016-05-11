@@ -4,36 +4,64 @@
 </ventana>
 <sprites>
 	<sprite>
-		<id>avion</id>
-		<path>path/a/avion.png</path>
+		<id>player1</id>
+		<path>Assets/Sprites/player1.png</path>
 		<cantidad>1</cantidad>
-		<ancho>10</ancho>
-		<alto>10</alto>
+		<ancho>60</ancho>
+		<alto>67</alto>
+	</sprite>
+	<sprite>
+		<id>player2</id>
+		<path>Assets/Sprites/player2.png</path>
+		<cantidad>1</cantidad>
+		<ancho>60</ancho>
+		<alto>67</alto>
+	</sprite>
+	<sprite>
+		<id>player3</id>
+		<path>Assets/Sprites/player3.png</path>
+		<cantidad>1</cantidad>
+		<ancho>60</ancho>
+		<alto>67</alto>
+	</sprite>
+	<sprite>
+		<id>player4</id>
+		<path>Assets/Sprites/player4.png</path>
+		<cantidad>1</cantidad>
+		<ancho>60</ancho>
+		<alto>67</alto>
 	</sprite>
 	<sprite>
 		<id>agua</id>
-		<path>path/a/agua.png</path>
+		<path>Assets/Sprites/agua.png</path>
 		<cantidad>1</cantidad>
 		<ancho>64</ancho>
 		<alto>64</alto>
 	</sprite>
 	<sprite>
 		<id>isla</id>
-		<path>path/a/island.png</path>
+		<path>Assets/Sprites/island.png</path>
 		<cantidad>1</cantidad>
-		<ancho>150</ancho>
-		<alto>150</alto>
+		<ancho>128</ancho>
+		<alto>128</alto>
+	</sprite>
+	<sprite>
+		<id>piedra</id>
+		<path>Assets/Sprites/Piedra.jpg</path>
+		<cantidad>1</cantidad>
+		<ancho>128</ancho>
+		<alto>128</alto>
 	</sprite>
 	<sprite>
 		<id>disparo</id>
-		<path>path/a/disparo.png</path>
+		<path>Assets/Sprites/disparo.png</path>
 		<cantidad>1</cantidad>
 		<ancho>5</ancho>
 		<alto>5</alto>
 	</sprite>
 	<sprite>
 		<id>vuelta</id>
-		<path>path/a/vuelta.png</path>
+		<path>Assets/Sprites/vuelta.png</path>
 		<cantidad>1</cantidad>
 		<ancho>5</ancho>
 		<alto>5</alto>
@@ -51,24 +79,38 @@
 	</fondo>
 	<elementos>
 		<elemento>
-			<spriteId>isla</spriteId>
+			<spriteId>piedra</spriteId>
 			<posicion>
-				<x>10</x>
-				<y>15</y>
+				<x>200</x>
+				<y>400</y>
+			</posicion>
+		</elemento>
+		<elemento>
+			<spriteId>piedra</spriteId>
+			<posicion>
+				<x>50</x>
+				<y>1300</y>
 			</posicion>
 		</elemento>
 		<elemento>
 			<spriteId>isla</spriteId>
 			<posicion>
-				<x>15</x>
-				<y>20</y>
+				<x>100</x>
+				<y>1000</y>
+			</posicion>
+		</elemento>
+		<elemento>
+			<spriteId>isla</spriteId>
+			<posicion>
+				<x>500</x>
+				<y>100</y>
 			</posicion>
 		</elemento>
 	</elementos>
 </escenario>
 <avion>
-	<velocidadDesplazamiento>15</velocidadDesplazamiento>
-	<velocidadDisparos>25</velocidadDisparos>
+	<velocidadDesplazamiento>10</velocidadDesplazamiento>
+	<velocidadDisparos>20</velocidadDisparos>
 	<cooldownDisparos>250</cooldownDisparos>
 	<avionSpriteId>avion</avionSpriteId>
 	<vueltaSpriteId>vuelta</vueltaSpriteId>

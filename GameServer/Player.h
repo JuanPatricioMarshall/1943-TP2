@@ -51,8 +51,13 @@ private:
     bool m_connected;
     bool m_doingFlip;
 
+    //Tiempo de animacion de giro
     int m_flipAnimationTime;
     int m_flipRemainingTime;
+
+    //UN timer para esperar un par de milisegundos desde que el jguador dejo de moverse para arrastrarlo
+    const int m_holdQuietTimer;
+    int m_currentHoldQuietTime;
 
     void updateFlipAnimation();
 
