@@ -14,7 +14,7 @@ InputHandler::InputHandler() :
 								m_mousePosition(new Vector2D(0,0))
 {
     // inicializa el estado de los clicks del mouse
-    for(int i = 0; i < 3; i++)
+    for(int i = 0; i < CLICK_POSITIONS; i++)
     {
         m_mouseButtonStates.push_back(false);
     }
